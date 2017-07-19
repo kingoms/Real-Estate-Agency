@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   # get 'new', to: 'landlord#new'
 
   resources :landlords
+
+  get 'signup', to: 'usars#new'
+  # post 'usars', to: 'usars#create'
+  resources :usars, except: [:new]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
