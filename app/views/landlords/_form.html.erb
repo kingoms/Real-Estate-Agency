@@ -1,0 +1,35 @@
+<% if @landlord.errors.any? %>
+  <h2> The following errors prevented the landlord from getting created </h2>
+  <ul>
+    <% @landlord.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+
+<% end %>
+
+
+<%= form_for @landlord do |f| %>
+  <p>
+    <%= f.label :firstname %> </br>
+    <%= f.text_field :firstname %>
+  </p>
+  <p>
+    <%= f.label :lastname %> </br>
+    <%= f.text_field :lastname %>
+  </p>
+  <p>
+    <%= f.label :address %> </br>
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :phone %> </br>
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to "Back to landlords listing", landlords_path %>

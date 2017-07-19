@@ -1,0 +1,21 @@
+<font color="green"><%=flash[:success]%></font><font color="red"><%=flash[:danger]%></font><br>
+<h1> Showing selected landlord</h1>
+<h2 align="center"> Landlord Details </h2>
+<!-- <h4 class="center"> <strong></strong> </h4> -->
+  Firstname: <%= @landlord.firstname %>
+</p>
+
+<p>
+  Lastname: <%= @landlord.lastname %>
+</p>
+
+<p>
+  Address: <%= @landlord.address %>
+</p>
+
+<p>
+  Phone Number: <%= @landlord.phone %>
+</p>
+
+<%= link_to "Edit this Landlord", edit_landlord_path(@landlord) %> |
+<%= link_to "View all Landlords", landlords_path %>
