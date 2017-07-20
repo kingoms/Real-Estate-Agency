@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 
   resources :landlords
 
-  get 'signup', to: 'usars#new'
+  # get 'signup', to: 'usars#new'
   # post 'usars', to: 'usars#create'
-  resources :usars, except: [:new]
+  resources :usars#, except: [:new]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

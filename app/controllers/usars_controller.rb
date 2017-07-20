@@ -13,6 +13,20 @@ class UsarsController < ApplicationController
     end
   end
 
+  def edit
+    @usar = Usar.find(params[:id])
+  end
+
+  def update
+    @usar = Usar.find(params[:id])
+    if @usar.update(usar_params)
+      flash[:success] = "Usar was successfully updated"
+      redirect_to landlords_path
+    else
+      render 'edit'
+    end
+  end
+
   private
   def usar_params
     params.require(:usar).permit(:firstname, :lastname, :username, :department, :role, :password)

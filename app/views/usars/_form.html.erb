@@ -1,0 +1,44 @@
+
+<%= form_for(@usar) do |f| %>
+  <% if @usar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@usar.errors.count, "error") %> prohibited this usar from being saved:</h2>
+
+      <ul>
+      <% @usar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :firstname %><br>
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :lastname %><br>
+    <%= f.text_field :lastname %>
+  </div>
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :department %><br>
+ <!--    <%= f.text_field :department %> -->
+ <%= f.select :department, ['Technical','Finance','Retail','CEO'], { :include_blank => '  ---- Select Department ---- ' }, :required => true %>
+  </div>
+  <div class="field">
+    <%= f.label :role %><br>
+<!--     <%= f.text_field :role %> -->
+<%= f.select :role, [['Administrator(admin)','admin'], ['User(user)','user'], ['Cashiers(cashier)','cashier']], { :include_blank => '  ---- Select User Role ---- ' }, :required => true %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div><br>
+  <div class="actions">
+    <%= f.submit(@usar.new_record? ? "Sign up" : "Update User")  %>
+  </div>
+<% end %>
